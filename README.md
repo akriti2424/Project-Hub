@@ -52,6 +52,8 @@ Request Body
 
 Login User
 
+POST /api/auth/login
+
 Request Body
 {
   "email": "akriti@test.com",
@@ -75,6 +77,20 @@ GET /api/test/protected
 
 Headers
 Authorization: Bearer <JWT_TOKEN>
+
+Response
+{
+    "message": "Access granted to protected route",
+    "user": {
+        "_id": "694fac0670d632ba32c3b0ae",
+        "name": "aktest1",
+        "email": "aktest1@test.com",
+        "role": "admin",
+        "createdAt": "2025-12-27T09:51:02.344Z",
+        "updatedAt": "2025-12-27T09:51:02.344Z",
+        "__v": 0
+    }
+}
 
 API Testing
 APIs tested using Postman
