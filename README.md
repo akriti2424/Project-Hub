@@ -38,6 +38,7 @@ Role Management
 -Role stored securely in database projectHub
 
 API Endpoints (Auth)
+
 Register User
 POST /api/auth/register
 Request Body
@@ -68,6 +69,12 @@ Response
   }
 }
 
+
+Protected Route (Test)
+GET /api/test/protected
+
+Headers
+Authorization: Bearer <JWT_TOKEN>
 
 API Testing
 APIs tested using Postman

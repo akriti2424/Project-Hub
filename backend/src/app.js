@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
+const testRoutes = require('./routes/testRoute');
 
 const app = express();
 
@@ -8,8 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth",authRoutes);
-// Creating API
+app.use('/api/test', testRoutes);
 
+// Creating API
 app.get("/", (req, res) =>{
     res.send('API running...');
 })
