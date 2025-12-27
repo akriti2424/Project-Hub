@@ -51,7 +51,7 @@ Request Body
 
 
 Login User
-
+Endpoint
 POST /api/auth/login
 
 Request Body
@@ -73,6 +73,7 @@ Response
 
 
 Protected Route (Test)
+End Point:
 GET /api/test/protected
 
 Headers
@@ -91,6 +92,86 @@ Response
         "__v": 0
     }
 }
+
+Added
+Admin-Only Route
+
+Endpoint
+GET /api/admin/dashboard
+Response 
+
+{
+  "message": "Welcome Admin"
+}
+
+Create Project
+Access: Admin, Manager
+ENDPOINT
+POST /api/projects
+
+Request Body
+{
+  "title": "Design Login Page",
+  "description": "Create login UI",
+  "project": "projectId",
+  "assignedTo": "userId"
+}
+
+Success Response (201)
+{
+  "_id": "taskId",
+  "title": "Design Login Page",
+  "status": "todo",
+  "project": "projectId",
+  "assignedTo": "userId"
+}
+
+Get Tasks by Project
+Access: Any authenticated user
+Endpoint
+GET /api/tasks/project/:projectId
+
+Success Response (200)
+[
+  {
+    "_id": "taskId",
+    "title": "Design Login Page",
+    "status": "todo"
+  }
+]
+
+Update Task
+Access: Admin, Manager
+Endpoint
+PUT /api/tasks/:id
+Request Body
+{
+  "status": "in-progress"
+}
+Success Response (200)
+{
+  "_id": "taskId",
+  "status": "in-progress"
+}
+
+Delete Task
+Access: Admin only
+Endpoint
+DELETE /api/tasks/:id
+Success Response (200)
+{
+  "message": "Task deleted successfully"
+}
+
+
+
+
+
+
+
+
+
+
 
 API Testing
 APIs tested using Postman
